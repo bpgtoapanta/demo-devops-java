@@ -3,6 +3,7 @@
 
 Para la resolución de este ejercicio se tomó el proyecto https://bitbucket.org/devsu/demo-devops-java/src/master/
 Este repositorio una vez clonado se lo sube en una cuenta personal como parte de la resolución de esta practica
+https://github.com/bpgtoapanta/demo-devops-java
 
 Se usó las siguientes tecnologías para la resolución
 
