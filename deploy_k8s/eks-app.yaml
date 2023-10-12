@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: demo
+  namespace: demo-devsu
+  labels:
+    service.app: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      service.app: demo
+  template:
+    metadata:
+      labels:
+        service.app: demo
+    spec:
+      containers:
+        - name: demo-app
+          image: <ACCOUNT>.dkr.ecr.us-east-1.amazonaws.com/demo-devops-java:latest
+          ports:
+            - containerPort: 8000
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-lb
+  namespace: demo-devsu
+  labels:
+    service.app: demo
+spec:
+  selector:
+    service.app: demo
+  type: LoadBalancer
+  ports:
+    - name: 'portnode'
+      port: 8000
+      targetPort: 8000

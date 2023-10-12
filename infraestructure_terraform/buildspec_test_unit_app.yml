@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands: 
+      - echo In the pre_test phase...
+  build:
+    commands:
+      - echo Test completed on `date`
+      - mvn clean test
+  post_build:
+    commands:
+      - echo Test completed on `date`
